@@ -1,6 +1,9 @@
 package com.github.masahirosuzuka.phonegapguidesigner.MainView;
 
 import com.intellij.openapi.editor.Document;
+
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
@@ -21,7 +24,14 @@ public class GlassLayerDropTargetListener implements DropTargetListener {
 
   @Override
   public void drop(DropTargetDropEvent dtde) {
-
+    System.out.println("drop");
+    Transferable transferable = dtde.getTransferable();
+    try {
+      Object data = transferable.getTransferData(DataFlavor.stringFlavor);
+      System.out.println(data);
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
