@@ -26,14 +26,14 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <fileEditorProvider implementation="com.github.masahirosuzuka.phonegapguidesigner.GUIBuilder3FileEditorProvider" />
+    <fileEditorProvider implementation="com.github.masahirosuzuka.phonegapguidesigner.MainView.GUIBuilderFileEditorProvider" />
 
     <toolWindow id="PhoneGapPalette"
                 secondary="true"
                 anchor="left"
-                factoryClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilder3PalettePanelFactory"
+                factoryClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilderPalettePanelFactory"
                 canCloseContents="true"
-                conditionClass="com.github.masahirosuzuka.phonegapguidesigner.GUIBuilder3ToolWindowConditions" />
+                conditionClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilderToolWindowConditions" />
 " />
 
     <!--toolWindow id="ComponentTree"
