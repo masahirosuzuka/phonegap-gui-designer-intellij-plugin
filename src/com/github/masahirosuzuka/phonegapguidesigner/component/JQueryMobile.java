@@ -40,17 +40,17 @@ public class JQueryMobile implements ComponentBase{
 
   }
 
-  static class Button extends Widget{
+  static class Button implements Widget{
     public static final String name = "Button";
     public static final String body = "<input type=\"button\" value=\"Button\">";
   }
 
-  public class CheckBoxRadio extends Widget {
+  public class CheckBoxRadio implements Widget {
     public static final String name = "CheckBoxRadio";
     public static final String body = "<input type=\"checkbox\" name=\"checkbox-0\">CheckBoxRadio</label>";
   }
 
-  public class Collapsible extends Widget {
+  public class Collapsible implements Widget {
     public static final String name = "Collapsible";
     public static final String body = "<div data-role=\"collapsible\">\n" +
         "<h3>Header</h3>\n" +
@@ -59,7 +59,7 @@ public class JQueryMobile implements ComponentBase{
   }
 
 
-  public class CollapsibleSet extends Widget {
+  public class CollapsibleSet implements Widget {
     public static final String name = "CollapsibleSet";
     public static final String body = "<div data-role=\"collapsible-set\">\n" +
               "<div data-role=\"collapsible\" data-collapsed=\"false\">\n" +
@@ -73,7 +73,7 @@ public class JQueryMobile implements ComponentBase{
             "</div>";
   }
 
-  public class ControlGroupe extends Widget {
+  public class ControlGroupe implements Widget {
     public static final String name = "ControlGroupe";
     public static final String body =  "<div data-role=\"controlgroup\">\n" +
               "<a href=\"#\" class=\"ui-btn ui-corner-all\">Yes</a>\n" +
@@ -110,7 +110,7 @@ public class JQueryMobile implements ComponentBase{
   }
   */
 
-  public class Flipswitch extends Widget {
+  public class Flipswitch implements Widget {
     public static final String name = "Flipswitch";
     public static final String body = "<fieldset>\n" +
               "<div data-role=\"fieldcontain\">\n" +
@@ -120,7 +120,7 @@ public class JQueryMobile implements ComponentBase{
             "</fieldset>";
   }
 
-  public class ListView extends Widget {
+  public class ListView implements Widget {
     public static final String name =  "ListView";
     public static final String body = "<ul data-role=\"listview\">\n" +
                 "<li><a href=\"#\">list1</a></li>\n" +
@@ -143,7 +143,7 @@ public class JQueryMobile implements ComponentBase{
   }
   */
 
-  public class Navbar extends Widget {
+  public class Navbar implements Widget {
     public static final String name = "Navbar";
     public static final String body = "<div data-role=\"navbar\">\n" +
                 "<ul>\n" +
@@ -153,7 +153,7 @@ public class JQueryMobile implements ComponentBase{
              "</div>";
   }
 
-  public class Page extends Widget {
+  public class Page implements Widget {
     public static final String name = "Page";
     public static final String body = "<div data-role=\"page\" id=\"page1\">" +
              "</div>";
@@ -174,7 +174,7 @@ public class JQueryMobile implements ComponentBase{
   }
   */
 
-  public class Panel extends Widget {
+  public class Panel implements Widget {
     public static final String name = "Panel";
     public static final String body = "<div data-role=\"panel\" id=\"mypanel\" data-position=\"right\" data-display=\"push\">\n" +
              "</div>";
@@ -195,7 +195,7 @@ public class JQueryMobile implements ComponentBase{
   }
   */
 
-  public class RangeSlider extends Widget {
+  public class RangeSlider implements Widget {
     public static final String name = "RangeSlider";
     public static final String body = "<div data-role=\"rangeslider\">\n" +
                 "<input name=\"range-1a\" id=\"range-1a\" min=\"0\" max=\"100\" value=\"0\" type=\"range\" />\n" +
@@ -204,7 +204,7 @@ public class JQueryMobile implements ComponentBase{
 
   }
 
-  public class Selectmenu extends Widget {
+  public class Selectmenu implements Widget {
     public static final String name = "Selectmenu";
     public static final String body = "<div class=\"ui-field-contain\">\n" +
                 "<label for=\"select-choice-1\" class=\"select\">Shipping method:</label>\n" +
@@ -217,13 +217,13 @@ public class JQueryMobile implements ComponentBase{
               "</div>";
   }
 
-  public class Slider extends Widget {
+  public class Slider implements Widget {
     public static final String name = "Slider";
     public static final String body = "<input type=\"range\" name=\"slider-1\" id=\"slider-1\" value=\"60\" min=\"0\" max=\"100\">";
 
   }
 
-  public class Table extends Widget {
+  public class Table implements Widget {
     public static final String name = "Table";
     public static final String body = "<table data-role=\"table\" id=\"my-table\" data-mode=\"reflow\"></table>";
   }
@@ -258,18 +258,18 @@ public class JQueryMobile implements ComponentBase{
   }
   */
 
-  public class Tabs extends Widget {
+  public class Tabs implements Widget {
     public static final String name = "Tab";
     public static final String body = "<div data-role=\"tabs\"></div>";
   }
 
-  public class TextInput extends Widget {
+  public class TextInput implements Widget {
     public static final String name = "TextInput";
     public static final String body = "<input type=\"text\" name=\"name\" id=\"basic\" value=\"\">";
 
   }
 
-  public class Toolbar extends Widget {
+  public class Toolbar implements Widget {
     public static final String name = "Toolbar";
     public static final String body = "<div data-role=\"header\">\n" +
                 "<a href=\"index.html\" data-icon=\"delete\">Cancel</a>\n" +

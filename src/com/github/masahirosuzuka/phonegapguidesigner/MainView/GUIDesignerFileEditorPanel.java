@@ -8,23 +8,18 @@ import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.PsiDocumentManager;
-import com.intellij.psi.xml.XmlFile;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import org.apache.xerces.parsers.DOMParser;
-import org.java.ayatana.ApplicationMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
-//import org.w3c.dom.*;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import org.xml.sax.SAXException;
+//import org.w3c.dom.*;
 
+import javax.lang.model.util.Elements;
 import javax.swing.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -111,14 +106,13 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     this.add(reloadButton);
 
     // DnD support
-    new DropTarget(jfxPanel, DnDConstants.ACTION_COPY, new MyDropTargetAdapter());
+    new DropTarget(jfxPanel, DnDConstants.ACTION_COPY, new GUIBuilderDropTarget());
 
     this.add(jfxPanel);
 
     // Collect position data
     Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
-    String htmlString = document.getText();
-    Jsoup.parse(htmlString);
+    Jsoup.parse(document.getText());
 
     document.addDocumentListener(new MyDocumentListener());
   }
@@ -136,15 +130,35 @@ public class GUIDesignerFileEditorPanel extends JPanel {
       }
   }
 
-  private class MyDropTargetAdapter extends DropTargetAdapter {
+  private class GUIBuilderDropTarget extends DropTargetAdapter {
 
     @Override
     public void drop(DropTargetDropEvent event) {
       event.acceptDrop(DnDConstants.ACTION_COPY_OR_MOVE);
       try {
-          Transferable transfer = event.getTransferable();
-          String key = transfer.getTransferData(DataFlavor.stringFlavor).toString();
+        Transferable transfer = event.getTransferable();
+        String content = transfer.getTransferData(DataFlavor.stringFlavor).toString();
 
+        final Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
+        final org.jsoup.nodes.Document dom = Jsoup.parse(document.getText());
+        Element body = dom.body();
+        body.append(content);
+
+        //System.out.println(body.html());
+        ApplicationManager.getApplication().runWriteAction(new Runnable() {
+          @Override
+          public void run() {
+            document.setText(dom.html());
+            Platform.runLater(new Runnable() {
+              @Override
+              public void run() {
+                webView.getEngine().reload();
+              }
+            });
+          }
+        });
+
+        /*
           if (key.equals("Button")) {
               final Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
               XmlFile xmlFile = (XmlFile)PsiDocumentManager.getInstance(myProject).getPsiFile(document);
@@ -169,7 +183,7 @@ public class GUIDesignerFileEditorPanel extends JPanel {
                       });
                   }
               });
-          }
+          }*/
       } catch (UnsupportedFlavorException ufe) {
           ufe.printStackTrace();
       } catch (IOException ioe) {
