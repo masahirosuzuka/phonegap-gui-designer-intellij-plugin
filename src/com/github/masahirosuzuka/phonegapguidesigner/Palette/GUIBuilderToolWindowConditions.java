@@ -9,8 +9,7 @@ import com.intellij.openapi.util.Condition;
 public class GUIBuilderToolWindowConditions implements Condition<Project>{
   @Override
   public boolean value(Project project) {
-    // Get files under srcRoot
-    // if .html files are there return true
+    // ToDo : Enable only project is PhoneGap/Cordova project
     return true;
   }
 }

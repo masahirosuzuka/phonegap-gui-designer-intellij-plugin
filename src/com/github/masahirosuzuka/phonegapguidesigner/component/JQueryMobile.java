@@ -15,6 +15,11 @@ public class JQueryMobile implements ComponentBase{
   public static final String name = "jQueryMobile";
   public static final String description = "";
   public static final String version = "1.4";
+  public static final String[] metaInfoOfCdn = new String[]{
+      "<link rel=\"stylesheet\" href=\"http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css\" />",
+      "<script src=\"http://code.jquery.com/jquery-1.11.1.min.js\"></script>",
+      "<script src=\"http://code.jquery.com/jquery-1.11.1.min.js\"></script>",
+  };
   public static Map<String, String> map =
       new HashMap<String, String>(){{
         put(Button.name, Button.body);

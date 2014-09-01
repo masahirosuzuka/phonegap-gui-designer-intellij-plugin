@@ -17,10 +17,8 @@ import javafx.scene.web.WebView;
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
-//import org.w3c.dom.*;
-
-import javax.lang.model.util.Elements;
 import javax.swing.*;
+import javax.swing.event.MouseInputAdapter;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -30,6 +28,8 @@ import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 /**
@@ -41,8 +41,7 @@ public class GUIDesignerFileEditorPanel extends JPanel {
 
   private Project myProject;
   private VirtualFile myVirtualFile;
-  //private JPanel container;
-  //private JFXPanel myJfxPanel;
+  private Document myDocument;
   private JFXPanel jfxPanel;
   private WebView webView;
   private ComboBox deviceSelector;
@@ -50,6 +49,7 @@ public class GUIDesignerFileEditorPanel extends JPanel {
   public GUIDesignerFileEditorPanel(@NotNull Project project, @NotNull VirtualFile virtualFile) {
     myProject = project;
     myVirtualFile = virtualFile;
+    myDocument = FileDocumentManager.getInstance().getDocument(myVirtualFile);
     initUI();
   }
 
@@ -94,7 +94,6 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     reloadButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //webView.getEngine().reload();
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -108,26 +107,37 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     // DnD support
     new DropTarget(jfxPanel, DnDConstants.ACTION_COPY, new GUIBuilderDropTarget());
 
+    // Active decolation layer
+    jfxPanel.addMouseListener(new GUIBuilderMouseAdapter());
+
     this.add(jfxPanel);
 
     // Collect position data
-    Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
-    Jsoup.parse(document.getText());
+    updatePositionData();
 
-    document.addDocumentListener(new MyDocumentListener());
+    myDocument.addDocumentListener(new MyDocumentListener());
   }
 
-  private class MyDocumentListener implements DocumentListener
-  {
-      @Override
-      public void beforeDocumentChange(DocumentEvent event) {
+  private void updatePositionData() {
+    Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
+    Element body = Jsoup.parse(document.getText()).body();
+    body.getAllElements();
 
-      }
+  }
 
-      @Override
-      public void documentChanged(DocumentEvent event) {
-        // Rebuild "information tree"
-      }
+  private class GUIBuilderMouseAdapter extends MouseInputAdapter {
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      super.mouseReleased(e);
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+      super.mouseMoved(e);
+    }
+
   }
 
   private class GUIBuilderDropTarget extends DropTargetAdapter {
@@ -157,38 +167,24 @@ public class GUIDesignerFileEditorPanel extends JPanel {
             });
           }
         });
-
-        /*
-          if (key.equals("Button")) {
-              final Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
-              XmlFile xmlFile = (XmlFile)PsiDocumentManager.getInstance(myProject).getPsiFile(document);
-              String xmlSting = xmlFile.getText();
-
-              final org.jsoup.nodes.Document domDocument = Jsoup.parse(xmlSting);
-              Element buttonElement = domDocument.createElement("button");
-              Element bodyElement = domDocument.body();
-              bodyElement.appendChild(buttonElement);
-
-              //System.out.println(domDocument.html());
-              ApplicationManager.getApplication().runWriteAction(new Runnable() {
-                  @Override
-                  public void run() {
-                      document.setText(domDocument.html());
-                      Platform.runLater(new Runnable() {
-                          @Override
-                          public void run() {
-                              webView.getEngine().reload();
-                              webView.getEngine().executeScript("alert(\"reloaded\");");
-                          }
-                      });
-                  }
-              });
-          }*/
       } catch (UnsupportedFlavorException ufe) {
           ufe.printStackTrace();
       } catch (IOException ioe) {
           ioe.printStackTrace();
       }
+    }
+  }
+
+  private class MyDocumentListener implements DocumentListener
+  {
+    @Override
+    public void beforeDocumentChange(DocumentEvent event) {
+
+    }
+
+    @Override
+    public void documentChanged(DocumentEvent event) {
+      // Rebuild "information tree"
     }
   }
 }

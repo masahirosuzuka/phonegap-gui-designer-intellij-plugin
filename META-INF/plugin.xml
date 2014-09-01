@@ -28,19 +28,12 @@
     <!-- Add your extensions here -->
     <fileEditorProvider implementation="com.github.masahirosuzuka.phonegapguidesigner.MainView.GUIBuilderFileEditorProvider" />
 
-    <toolWindow id="PhoneGapPalette"
+    <toolWindow id="PhoneGapGUI"
                 secondary="true"
                 anchor="left"
                 factoryClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilderPalettePanelFactory"
                 canCloseContents="true"
                 conditionClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilderToolWindowConditions" />
-" />
-
-    <!--toolWindow id="ComponentTree"
-                secondary="true"
-                anchor="right"
-                factoryClass="com.github.masahirosuzuka.phonegapguidesigner.ComponentTree.GUIBuilderTreeAndAttributesInspectorFactory"
-                canCloseContents="true" /-->
   </extensions>
 
   <application-components>
