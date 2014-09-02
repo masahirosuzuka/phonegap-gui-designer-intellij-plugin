@@ -76,7 +76,7 @@ public class GUIBuilderPalettePanel extends JPanel {
     list.setBackground(myToolWindow.getComponent().getBackground());
     list.setLocation(0, 0);
     list.setPreferredSize(new Dimension(myToolWindow.getComponent().getWidth(), myToolWindow.getComponent().getHeight()));
-    this.add(list);
+    this.add(new JBScrollPane(list));
   }
 
   private class GUIBuilderTransferHandler extends TransferHandler {
