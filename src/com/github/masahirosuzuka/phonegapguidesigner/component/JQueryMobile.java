@@ -1,21 +1,28 @@
 package com.github.masahirosuzuka.phonegapguidesigner.component;
 
-import com.sun.jna.WeakIdentityHashMap;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.LocalFileSystem;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.PsiManager;
+import com.intellij.psi.xml.XmlFile;
+import org.apache.commons.io.IOUtils;
 
-import javax.tools.Tool;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  *
  * Created by masahiro on 2014/08/24.
  */
-public class JQueryMobile implements ComponentBase{
+public class JQueryMobile {
   public static final String name = "jQueryMobile";
   public static final String description = "";
   public static final String version = "1.4";
-  public static final String[] metaInfoOfCdn = new String[]{
+  public static final String[] metaInfo = new String[]{
       "<link rel=\"stylesheet\" href=\"http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css\" />",
       "<script src=\"http://code.jquery.com/jquery-1.11.1.min.js\"></script>",
       "<script src=\"http://code.jquery.com/jquery-1.11.1.min.js\"></script>",
@@ -41,8 +48,10 @@ public class JQueryMobile implements ComponentBase{
         put(Toolbar.name, Toolbar.body);
       }};
 
-  public JQueryMobile() {
-
+  public JQueryMobile(Project project) {
+    URL url = this.getClass().getResource("jQueryMobile.xml");
+    VirtualFile virtualFile = LocalFileSystem.getInstance().findFileByPath(url.getPath());
+    XmlFile xmlFile = (XmlFile)PsiManager.getInstance(project).findFile(virtualFile);
   }
 
   static class Button implements Widget{
@@ -52,7 +61,7 @@ public class JQueryMobile implements ComponentBase{
 
   public class CheckBoxRadio implements Widget {
     public static final String name = "CheckBoxRadio";
-    public static final String body = "<input type=\"checkbox\" name=\"checkbox-0\">CheckBoxRadio</label>";
+    public static final String body = "<label><input type=\"checkbox\" name=\"checkbox-0\">CheckBoxRadio</label>";
   }
 
   public class Collapsible implements Widget {
@@ -160,8 +169,7 @@ public class JQueryMobile implements ComponentBase{
 
   public class Page implements Widget {
     public static final String name = "Page";
-    public static final String body = "<div data-role=\"page\" id=\"page1\">" +
-             "</div>";
+    public static final String body = "<div data-role=\"page\" id=\"page1\"></div>";
   }
 
   /*
@@ -181,8 +189,7 @@ public class JQueryMobile implements ComponentBase{
 
   public class Panel implements Widget {
     public static final String name = "Panel";
-    public static final String body = "<div data-role=\"panel\" id=\"mypanel\" data-position=\"right\" data-display=\"push\">\n" +
-             "</div>";
+    public static final String body = "<div data-role=\"panel\" id=\"mypanel\" data-position=\"right\" data-display=\"push\">\n</div>";
   }
 
   /*

@@ -30,8 +30,8 @@ public class GUIBuilderPalettePanel extends JPanel {
 
   private Project myProject;
   private ToolWindow myToolWindow;
-  private JQueryMobile jQuery = new JQueryMobile();
-  private Map jQueryMap = jQuery.map;
+  private JQueryMobile jQuery;
+  private Map jQueryMap;
   private Tree tree;
   private DefaultMutableTreeNode key;
 
@@ -62,6 +62,9 @@ public class GUIBuilderPalettePanel extends JPanel {
     JBScrollPane scrollPane = new JBScrollPane(tree);
     this.add(scrollPane);
     */
+
+    jQuery = new JQueryMobile(myProject);
+    jQueryMap = jQuery.map;
 
     JBList list = new JBList();
     DefaultListModel model = new DefaultListModel();

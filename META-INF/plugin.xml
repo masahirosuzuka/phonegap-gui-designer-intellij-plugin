@@ -23,12 +23,14 @@
   <!-- uncomment to enable plugin in all products
   <depends>com.intellij.modules.lang</depends>
   -->
+  <depends>com.intellij.spring</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <fileEditorProvider implementation="com.github.masahirosuzuka.phonegapguidesigner.MainView.GUIBuilderFileEditorProvider" />
 
     <toolWindow id="PhoneGapGUI"
+                icon="/general/add.png"
                 secondary="true"
                 anchor="left"
                 factoryClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilderPalettePanelFactory"
