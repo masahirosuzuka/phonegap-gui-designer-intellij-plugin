@@ -8,12 +8,10 @@ import com.intellij.ui.components.JBScrollPane;
 import com.intellij.ui.treeStructure.Tree;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import javax.swing.*;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreePath;
+import javax.swing.tree.DefaultTreeCellRenderer;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
@@ -43,43 +41,27 @@ public class GUIBuilderPalettePanel extends JPanel {
   }
 
   private void initUI() {
-    /*
-    DefaultMutableTreeNode root = new DefaultMutableTreeNode("jQuery Mobile");
+    DefaultMutableTreeNode root = new DefaultMutableTreeNode("Component");
 
+    jQuery = new JQueryMobile(myProject);
+    jQueryMap = jQuery.map;
+    DefaultMutableTreeNode jQueryRoot = new DefaultMutableTreeNode("jQuery Mobile");
+    root.add(jQueryRoot);
     Set<String> stringSet = jQuery.map.keySet();
     String[] jQueryArray = stringSet.toArray(new String[stringSet.size()]);
     for (String widgetName : jQueryArray) {
-      root.add(new DefaultMutableTreeNode(widgetName));
+      jQueryRoot.add(new DefaultMutableTreeNode(widgetName));
     }
 
     tree = new Tree(root);
     tree.setDragEnabled(true);
     tree.setTransferHandler(new GUIBuilderTransferHandler());
-    tree.setBackground(myToolWindow.getComponent().getBackground());
-    tree.setLocation(0, 0);
-    tree.setPreferredSize(new Dimension(myToolWindow.getComponent().getWidth(),
-        myToolWindow.getComponent().getHeight()));
-    JBScrollPane scrollPane = new JBScrollPane(tree);
+    tree.setBackground(Color.white);
+    JBScrollPane scrollPane = new JBScrollPane();
+    scrollPane.setViewportView(tree);
+    scrollPane.setLocation(0, 0);
+    scrollPane.setPreferredSize(new Dimension(myToolWindow.getComponent().getWidth(), myToolWindow.getComponent().getHeight()));
     this.add(scrollPane);
-    */
-
-    jQuery = new JQueryMobile(myProject);
-    jQueryMap = jQuery.map;
-
-    JBList list = new JBList();
-    DefaultListModel model = new DefaultListModel();
-    list.setModel(model);
-    Set<String> stringSet = jQuery.map.keySet();
-    String[] stringArray = stringSet.toArray(new String[stringSet.size()]);
-    list.setListData(stringArray);
-
-    list.setDragEnabled(true);
-    list.setTransferHandler(new GUIBuilderTransferHandler());
-
-    list.setBackground(myToolWindow.getComponent().getBackground());
-    list.setLocation(0, 0);
-    list.setPreferredSize(new Dimension(myToolWindow.getComponent().getWidth(), myToolWindow.getComponent().getHeight()));
-    this.add(list);
   }
 
   private class GUIBuilderTransferHandler extends TransferHandler {
@@ -87,10 +69,10 @@ public class GUIBuilderPalettePanel extends JPanel {
     @Nullable
     @Override
     protected Transferable createTransferable(JComponent c) {
-      JBList list = (JBList)c;
-      String key = list.getSelectedValue().toString();
+      Tree tree = (Tree)c;
+      String key = tree.getLastSelectedPathComponent().toString();
       if (key != null) {
-        return new StringSelection(jQueryMap.get(key).toString());
+        return new StringSelection((jQueryMap.get(key).toString()));
       }
       return null;
     }
@@ -107,5 +89,13 @@ public class GUIBuilderPalettePanel extends JPanel {
     public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
       return false;
     }
+  }
+
+  private class GUIBuilderMutableTreeNode extends DefaultMutableTreeNode {
+
+  }
+
+  private class GUIBuilderTreeCellRenderer extends DefaultTreeCellRenderer {
+
   }
 }

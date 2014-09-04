@@ -17,6 +17,7 @@ import javafx.scene.web.WebView;
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
+
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import java.awt.datatransfer.DataFlavor;
@@ -28,7 +29,6 @@ import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 
