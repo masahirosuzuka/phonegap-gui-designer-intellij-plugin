@@ -14,6 +14,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import netscape.javascript.JSObject;
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -30,6 +31,7 @@ import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeListener;
 import java.io.IOException;
 
 /**
@@ -70,6 +72,7 @@ public class GUIDesignerFileEditorPanel extends JPanel {
 
         webView = new WebView();
         WebEngine webEngine = webView.getEngine();
+        webEngine.setJavaScriptEnabled(true);
         webEngine.load(url);
 
         root.getChildren().add(webView);
@@ -104,6 +107,20 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     });
     this.add(reloadButton);
 
+    JButton viewSourceButton = new JButton("view source");
+    viewSourceButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        Platform.runLater(new Runnable() {
+          @Override
+          public void run() {
+            JSObject jsObject = (JSObject)webView.getEngine().executeScript("window");
+          }
+        });
+      }
+    });
+    this.add(viewSourceButton);
+
     // DnD support
     new DropTarget(jfxPanel, DnDConstants.ACTION_COPY, new GUIBuilderDropTarget());
 
@@ -130,12 +147,15 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     @Override
     public void mouseReleased(MouseEvent e) {
       super.mouseReleased(e);
-
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
       super.mouseMoved(e);
+      /*
+      JSObject jsObject = (JSObject)webView.getEngine().executeScript("getSelection");
+      System.out.println(jsObject.toString());
+      */
     }
 
   }

@@ -5,6 +5,7 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.xml.XmlFile;
+import com.intellij.spring.model.utils.SpringModelUtils;
 
 import java.net.URL;
 import java.util.HashMap;

@@ -1,8 +1,8 @@
 <idea-plugin version="2">
   <id>com.github.masahirosuzuka.phonegapguidesigner</id>
-  <name>GUIBuilder3</name>
-  <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <name>PhoneGap GUI designer</name>
+  <version>0.1</version>
+  <vendor email="masahiro.suzuka@gmail.com" url="http://masahirosuzuka.hatenablog.com/">masahirosuzuka</vendor>
 
   <description><![CDATA[
       Enter short description for your plugin here.<br>
@@ -10,9 +10,11 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
-    ]]>
+    jQuery Mobile
+    Kendo UI
+    ionic
+    Onsen UI
+  ]]>
   </change-notes>
 
   <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->

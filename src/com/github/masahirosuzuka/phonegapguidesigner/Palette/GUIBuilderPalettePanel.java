@@ -53,6 +53,9 @@ public class GUIBuilderPalettePanel extends JPanel {
       jQueryRoot.add(new DefaultMutableTreeNode(widgetName));
     }
 
+    DefaultMutableTreeNode kendoUI = new DefaultMutableTreeNode("Kendo UI");
+    root.add(kendoUI);
+
     tree = new Tree(root);
     tree.setDragEnabled(true);
     tree.setTransferHandler(new GUIBuilderTransferHandler());
@@ -83,7 +86,7 @@ public class GUIBuilderPalettePanel extends JPanel {
     }
 
     /*
-     * ingore drag-over form self
+     * ingore drag-and-drop form self
      */
     @Override
     public boolean canImport(JComponent comp, DataFlavor[] transferFlavors) {
