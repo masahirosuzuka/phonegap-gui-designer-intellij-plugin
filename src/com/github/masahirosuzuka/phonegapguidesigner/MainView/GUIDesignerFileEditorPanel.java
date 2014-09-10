@@ -21,6 +21,7 @@ import org.jsoup.nodes.Element;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
+import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -107,40 +108,13 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     });
     this.add(reloadButton);
 
-    JButton viewSourceButton = new JButton("view source");
-    viewSourceButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        Platform.runLater(new Runnable() {
-          @Override
-          public void run() {
-            JSObject jsObject = (JSObject)webView.getEngine().executeScript("window.document.elementFromPoint(100, 100);");
-            System.out.println(jsObject);
-          }
-        });
-      }
-    });
-    this.add(viewSourceButton);
-
     // DnD support
     new DropTarget(jfxPanel, DnDConstants.ACTION_COPY, new GUIBuilderDropTarget());
 
-    // Active decolation layer
-    jfxPanel.addMouseListener(new GUIBuilderMouseAdapter());
+    // Decolate active widget
+    jfxPanel.addMouseMotionListener(new GUIBuilderMouseAdapter());
 
     this.add(jfxPanel);
-
-    // Collect position data
-    updatePositionData();
-
-    myDocument.addDocumentListener(new MyDocumentListener());
-  }
-
-  private void updatePositionData() {
-    Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
-    Element body = Jsoup.parse(document.getText()).body();
-    body.getAllElements();
-
   }
 
   private class GUIBuilderMouseAdapter extends MouseInputAdapter {
@@ -153,10 +127,15 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     @Override
     public void mouseMoved(MouseEvent e) {
       super.mouseMoved(e);
-      /*
-      JSObject jsObject = (JSObject)webView.getEngine().executeScript("getSelection");
-      System.out.println(jsObject.toString());
-      */
+      final Point point = e.getLocationOnScreen();
+      Platform.runLater(new Runnable() {
+        @Override
+        public void run() {
+          String jsCode = String.format("window.document.elementFromPoint( %f,  %f);", point.getX(), point.getY());
+          JSObject jsObject = (JSObject)webView.getEngine().executeScript(jsCode);
+          System.out.println(jsObject);
+        }
+      });
     }
 
   }
@@ -193,19 +172,6 @@ public class GUIDesignerFileEditorPanel extends JPanel {
       } catch (IOException ioe) {
           ioe.printStackTrace();
       }
-    }
-  }
-
-  private class MyDocumentListener implements DocumentListener
-  {
-    @Override
-    public void beforeDocumentChange(DocumentEvent event) {
-
-    }
-
-    @Override
-    public void documentChanged(DocumentEvent event) {
-      // Rebuild "information tree"
     }
   }
 }
