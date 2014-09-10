@@ -114,7 +114,8 @@ public class GUIDesignerFileEditorPanel extends JPanel {
         Platform.runLater(new Runnable() {
           @Override
           public void run() {
-            JSObject jsObject = (JSObject)webView.getEngine().executeScript("window");
+            JSObject jsObject = (JSObject)webView.getEngine().executeScript("window.document.elementFromPoint(100, 100);");
+            System.out.println(jsObject);
           }
         });
       }
