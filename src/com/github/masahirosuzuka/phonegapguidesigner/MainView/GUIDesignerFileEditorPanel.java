@@ -127,11 +127,11 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     @Override
     public void mouseMoved(MouseEvent e) {
       super.mouseMoved(e);
-      final Point point = e.getLocationOnScreen();
+      final Point point = e.getPoint();
       Platform.runLater(new Runnable() {
         @Override
         public void run() {
-          String jsCode = String.format("window.document.elementFromPoint( %f,  %f);", point.getX(), point.getY());
+          String jsCode = String.format("window.document.elementFromPoint(%f,%f);", point.getX(), point.getY());
           JSObject jsObject = (JSObject)webView.getEngine().executeScript(jsCode);
           System.out.println(jsObject);
         }

@@ -50,6 +50,15 @@ public class JQueryMobile {
     VirtualFile virtualFile = LocalFileSystem.getInstance().findFileByPath(url.getPath());
     XmlFile xmlFile = (XmlFile)PsiManager.getInstance(project).findFile(virtualFile);
   }
+/*
+  public class Button implements Widget {
+    public String name;
+
+    public void setName(String name) {
+      this.name = name;
+    }
+  }
+  */
 
   static class Button implements Widget{
     public static final String name = "Button";
