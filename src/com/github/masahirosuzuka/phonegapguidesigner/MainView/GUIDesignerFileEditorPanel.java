@@ -18,6 +18,7 @@ import netscape.javascript.JSObject;
 import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
+import org.w3c.dom.html.HTMLElement;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
@@ -119,6 +120,8 @@ public class GUIDesignerFileEditorPanel extends JPanel {
 
   private class GUIBuilderMouseAdapter extends MouseInputAdapter {
 
+    private HTMLElement lastElement;
+
     @Override
     public void mouseReleased(MouseEvent e) {
       super.mouseReleased(e);
@@ -128,12 +131,19 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     public void mouseMoved(MouseEvent e) {
       super.mouseMoved(e);
       final Point point = e.getPoint();
+
       Platform.runLater(new Runnable() {
         @Override
         public void run() {
+          if (lastElement != null) {
+            lastElement.removeAttribute("style");
+          }
           String jsCode = String.format("window.document.elementFromPoint(%f,%f);", point.getX(), point.getY());
           JSObject jsObject = (JSObject)webView.getEngine().executeScript(jsCode);
-          System.out.println(jsObject);
+          HTMLElement element = (HTMLElement)jsObject;
+          //System.out.println(element.getAttribute("style"));
+          lastElement = element;
+          element.setAttribute("style", "border-color:red;");
         }
       });
     }
