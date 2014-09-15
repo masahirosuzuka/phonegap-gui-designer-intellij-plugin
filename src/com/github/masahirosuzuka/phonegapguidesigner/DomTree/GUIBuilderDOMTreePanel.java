@@ -1,4 +1,4 @@
-package com.github.masahirosuzuka.phonegapguidesigner.ComponentTree;
+package com.github.masahirosuzuka.phonegapguidesigner.DomTree;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
@@ -16,18 +16,24 @@ import java.io.File;
 import java.util.List;
 
 /**
+ * GUIBuilderDOMTreePanel.java
+ *
  * Created by Masahiro Suzuka on 2014/05/14.
  */
-public class GUIBuilderTreeAndAttributesInspector extends JPanel {
+public class GUIBuilderDOMTreePanel extends JPanel {
 
   private Project project;
   private ToolWindow toolWindow;
   private DefaultMutableTreeNode rootTreeNode;
 
-  public GUIBuilderTreeAndAttributesInspector(@NotNull Project project, @NotNull ToolWindow toolWindow) {
+  public GUIBuilderDOMTreePanel(@NotNull Project project, @NotNull ToolWindow toolWindow) {
     this.project = project;
     this.toolWindow = toolWindow;
 
+    initUI();
+  }
+
+  private void initUI () {
     String currentFilePath = project.getBasePath() + "/" + "www/index.html";
 
     // Read HTML Document

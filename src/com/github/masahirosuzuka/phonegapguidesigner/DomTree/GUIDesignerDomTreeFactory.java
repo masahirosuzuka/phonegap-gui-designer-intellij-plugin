@@ -1,4 +1,4 @@
-package com.github.masahirosuzuka.phonegapguidesigner.ComponentTree;
+package com.github.masahirosuzuka.phonegapguidesigner.DomTree;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
@@ -9,10 +9,10 @@ import com.intellij.ui.content.ContentFactory;
 /**
  * Created by Masahiro Suzuka on 2014/05/14.
  */
-public class GUIBuilderTreeAndAttributesInspectorFactory implements ToolWindowFactory {
+public class GUIDesignerDomTreeFactory implements ToolWindowFactory {
   @Override
   public void createToolWindowContent(Project project, ToolWindow toolWindow) {
-    GUIBuilderTreeAndAttributesInspector treeAndAttributesInspector = new GUIBuilderTreeAndAttributesInspector(project, toolWindow);
+    GUIBuilderDOMTreePanel treeAndAttributesInspector = new GUIBuilderDOMTreePanel(project, toolWindow);
     Content content = ContentFactory.SERVICE.getInstance().createContent(treeAndAttributesInspector, "", false);
     toolWindow.getContentManager().addContent(content);
   }

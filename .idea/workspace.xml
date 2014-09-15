@@ -44,8 +44,28 @@
       <file leaf-file-name="GUIDesignerFileEditorPanel.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/MainView/GUIDesignerFileEditorPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0769231" vertical-offset="2310" max-vertical-offset="3000">
-              <caret line="182" column="17" selection-start-line="182" selection-start-column="17" selection-end-line="182" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.6594005" vertical-offset="2698" max-vertical-offset="3405">
+              <caret line="196" column="11" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plugin.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="299" max-vertical-offset="1005">
+              <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GUIBuilderDOMTreePanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/DomTree/GUIBuilderDOMTreePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="1170">
+              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -54,7 +74,7 @@
       <file leaf-file-name="Widget.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/Widget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="270">
               <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
@@ -64,7 +84,7 @@
       <file leaf-file-name="jQueryMobile.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/jQueryMobile.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="270">
+            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="270">
               <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
@@ -74,7 +94,7 @@
       <file leaf-file-name="GUIDesignerFileEditor.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/MainView/GUIDesignerFileEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2070">
+            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="2070">
               <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
               <folding />
             </state>
@@ -84,7 +104,7 @@
       <file leaf-file-name="GUIBuilderPalettePanel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/Palette/GUIBuilderPalettePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1012" max-vertical-offset="1695">
+            <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="1695">
               <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding />
             </state>
@@ -104,7 +124,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/guibuilder3/GUIBuilderTreeAndAttributesInspectorFactory.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/guibuilder3/GUIBuilderTreeAndAttributesInspector.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/guibuilder3/GUIBuilder3PalettePanelFactory.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/guibuilder3/GUIBuilder3PalettePanel.java" />
@@ -128,7 +147,6 @@
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/MainView/ButtonTag.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/GUIBuilder3FileEditorProvider.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/KendoUISettings.java" />
-        <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/ComponentTree/GUIBuilderTreeAndAttributesInspector.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/settings/Device.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/MainView/FileEditorPanel.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/Palette/GUIBuilder3PalettePanel.java" />
@@ -147,13 +165,15 @@
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/ComponentBase.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/model.xml" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/OnsenUI.java" />
-        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/jQueryMobile.xml" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/JQueryMobile.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/Widget.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/MyButton.java" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/Palette/GUIBuilderPalettePanel.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/ComponentTree/GUIBuilderTreeAndAttributesInspector.java" />
+        <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/ComponentTree/GUIBuilderDOMTreePanel.java" />
+        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/MainView/GUIDesignerFileEditorPanel.java" />
       </list>
     </option>
@@ -198,64 +218,14 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="phonegap-gui-designer-intellij-plugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegap-gui-designer-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegap-gui-designer-intellij-plugin" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegap-gui-designer-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegap-gui-designer-intellij-plugin" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegapguidesigner" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegap-gui-designer-intellij-plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegap-gui-designer-intellij-plugin" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phonegapguidesigner" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -576,12 +546,14 @@
       <workItem from="1409850209403" duration="8426000" />
       <workItem from="1410099889783" duration="4825000" />
       <workItem from="1410455899697" duration="837000" />
-      <workItem from="1410459190399" duration="24049000" />
+      <workItem from="1410459190399" duration="25427000" />
+      <workItem from="1410792247731" duration="113000" />
+      <workItem from="1410795263174" duration="802000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116767000" />
+    <option name="totallyTimeSpent" value="119060000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="829" extended-state="6" />
@@ -679,6 +651,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/Palette/GUIBuilderPalettePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1012" max-vertical-offset="1695">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/MainView/GUIDesignerFileEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="2070">
@@ -699,7 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="165">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
@@ -797,14 +776,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/ComponentTree/GUIBuilderTreeAndAttributesInspector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.767184" vertical-offset="89" max-vertical-offset="1095">
-          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/ComponentTree/GUIBuilderTreeAndAttributesInspectorFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/DomTree/GUIDesignerDomTreeFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.63192904" vertical-offset="0" max-vertical-offset="451">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
@@ -885,7 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="5549" max-vertical-offset="12960">
           <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -893,7 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7247438" vertical-offset="0" max-vertical-offset="683">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -971,15 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.098684214" vertical-offset="0" max-vertical-offset="456">
           <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="444" max-vertical-offset="900">
-          <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,7 +954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/component/jQueryMobile.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="270">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="270">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
@@ -1019,7 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.86089647" vertical-offset="1348" max-vertical-offset="1995">
           <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1027,7 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18238021" vertical-offset="21602" max-vertical-offset="26910">
           <caret line="1448" column="0" selection-start-line="1448" selection-start-column="0" selection-end-line="1448" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1035,11 +994,26 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="299" max-vertical-offset="1005">
+          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/DomTree/GUIBuilderDOMTreePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="1170">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/Palette/GUIBuilderPalettePanel.java">
@@ -1052,8 +1026,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/github/masahirosuzuka/phonegapguidesigner/MainView/GUIDesignerFileEditorPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0769231" vertical-offset="2310" max-vertical-offset="3000">
-          <caret line="182" column="17" selection-start-line="182" selection-start-column="17" selection-end-line="182" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.6594005" vertical-offset="2698" max-vertical-offset="3405">
+          <caret line="196" column="11" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
           <folding />
         </state>
       </provider>

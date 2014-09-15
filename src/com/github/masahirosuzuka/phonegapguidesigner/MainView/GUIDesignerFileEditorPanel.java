@@ -166,6 +166,33 @@ public class GUIDesignerFileEditorPanel extends JPanel {
 
             String getHtml = String.format("new XMLSerializer().serializeToString(window.document.documentElement);");
             htmlString = (String)webView.getEngine().executeScript(getHtml);
+
+            /*
+            function getXPath( element )
+            {
+              var xpath = '';
+              for ( ; element && element.nodeType == 1; element = element.parentNode )
+              {
+                var id = $(element.parentNode).children(element.tagName).index(element) + 1;
+                id > 1 ? (id = '[' + id + ']') : (id = '');
+                xpath = '/' + element.tagName.toLowerCase() + id + xpath;
+              }
+              return xpath;
+             }
+             */
+            String getXPath = String.format("(function() {" +
+                                            "var element = window.document.elementFromPoint(%f,%f);\n" +
+                                            "var xpath = '';\n" +
+                                            "for ( ; element && element.nodeType == 1; element = element.parentNode )\n" +
+                                            "{\n" +
+                                              "var id = $(element.parentNode).children(element.tagName).index(element) + 1;\n" +
+                                              "id > 1 ? (id = '[' + id + ']') : (id = '');\n" +
+                                              "xpath = '/' + element.tagName.toLowerCase() + id + xpath;\n" +
+                                            "}\n" +
+                                            "return xpath;\n" +
+                                            "});", point.getX(), point.getY());
+            String result = (String)webView.getEngine().executeScript(getXPath);
+            System.out.println(result);
           }
         });
 

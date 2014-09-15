@@ -38,6 +38,13 @@
                 factoryClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilderPalettePanelFactory"
                 canCloseContents="true"
                 conditionClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilderToolWindowConditions" />
+
+    <toolWindow id="PhoneGapDOMTree"
+                secondary="false"
+                anchor="right"
+                factoryClass="com.github.masahirosuzuka.phonegapguidesigner.DomTree.GUIDesignerDomTreeFactory"
+                canCloseContents="true"
+                conditionClass="com.github.masahirosuzuka.phonegapguidesigner.Palette.GUIBuilderToolWindowConditions" />
   </extensions>
 
   <application-components>
