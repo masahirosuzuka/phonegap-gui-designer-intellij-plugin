@@ -2,8 +2,6 @@ package com.github.masahirosuzuka.phonegapguidesigner.MainView;
 
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.editor.event.DocumentEvent;
-import com.intellij.openapi.editor.event.DocumentListener;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.ComboBox;
@@ -16,23 +14,10 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import netscape.javascript.JSObject;
 import org.jetbrains.annotations.NotNull;
-import org.jsoup.Jsoup;
-//import org.jsoup.nodes.Element;
-import org.w3c.dom.*;
-//import org.w3c.dom.Document;
-import org.w3c.dom.html.HTMLDocument;
 import org.w3c.dom.html.HTMLElement;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
-//import javax.swing.text.html.HTMLDocument;
-import javax.transaction.TransactionRequiredException;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -44,9 +29,7 @@ import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.beans.PropertyChangeListener;
 import java.io.IOException;
-import java.io.StringWriter;
 
 /**
  * GUIBuilder3FileEditorPanel.java
@@ -88,7 +71,6 @@ public class GUIDesignerFileEditorPanel extends JPanel {
         WebEngine webEngine = webView.getEngine();
         webEngine.setJavaScriptEnabled(true);
         webEngine.load(url);
-        //webEngine.executeScript("(function(F,i,r,e,b,u,g,L,I,T,E){if(F.getElementById(b))return;E=F[i+'NS']&&F.documentElement.namespaceURI;E=E?F[i+'NS'](E,'script'):F[i]('script');E[r]('id',b);E[r]('src',I+g+T);E[r](b,u);(F[e]('head')[0]||F[e]('body')[0]).appendChild(E);E=new Image;E[r]('src',I+L);})(document,'createElement','setAttribute','getElementsByTagName','FirebugLite','4','firebug-lite.js','releases/lite/latest/skin/xp/sprite.png','https://getfirebug.com/','#startOpened');");
 
         root.getChildren().add(webView);
 
@@ -161,6 +143,7 @@ public class GUIDesignerFileEditorPanel extends JPanel {
   private class GUIBuilderDropTarget extends DropTargetAdapter {
 
     private Point point;
+    private String htmlString;
 
     @Override
     public void drop(DropTargetDropEvent event) {
@@ -169,10 +152,8 @@ public class GUIDesignerFileEditorPanel extends JPanel {
       try {
         final Transferable transfer = event.getTransferable();
         final String content = transfer.getTransferData(DataFlavor.stringFlavor).toString();
-        //System.out.println(content);
-
+        //final String htmlString;
         final Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
-        //final org.jsoup.nodes.Document dom = Jsoup.parse(document.getText());
 
         Platform.runLater(new Runnable() {
           @Override
@@ -184,21 +165,23 @@ public class GUIDesignerFileEditorPanel extends JPanel {
             webView.getEngine().executeScript(insert);
 
             String getHtml = String.format("new XMLSerializer().serializeToString(window.document.documentElement);");
-            String str = (String)webView.getEngine().executeScript(getHtml);
-
-            System.out.println(str);
+            htmlString = (String)webView.getEngine().executeScript(getHtml);
           }
         });
 
         ApplicationManager.getApplication().runWriteAction(new Runnable() {
           @Override
           public void run() {
-            Platform.runLater(new Runnable() {
-              @Override
-              public void run() {
-                //webView.getEngine().reload();
-              }
-            });
+            if (htmlString != null) {
+              document.setText(htmlString);
+              FileDocumentManager.getInstance().saveDocument(document);// Save file
+              Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                  webView.getEngine().reload();
+                }
+              });
+            }
           }
         });
       } catch (UnsupportedFlavorException ufe) {
@@ -209,4 +192,3 @@ public class GUIDesignerFileEditorPanel extends JPanel {
     }
   }
 }
-

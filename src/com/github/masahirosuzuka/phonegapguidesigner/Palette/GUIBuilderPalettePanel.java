@@ -53,8 +53,11 @@ public class GUIBuilderPalettePanel extends JPanel {
       jQueryRoot.add(new DefaultMutableTreeNode(widgetName));
     }
 
-    DefaultMutableTreeNode kendoUI = new DefaultMutableTreeNode("Kendo UI");
-    root.add(kendoUI);
+    DefaultMutableTreeNode ionic = new DefaultMutableTreeNode("ionic");
+    root.add(ionic);
+
+    DefaultMutableTreeNode onsenUI = new DefaultMutableTreeNode("Onsen UI");
+    root.add(onsenUI);
 
     tree = new Tree(root);
     tree.setDragEnabled(true);
