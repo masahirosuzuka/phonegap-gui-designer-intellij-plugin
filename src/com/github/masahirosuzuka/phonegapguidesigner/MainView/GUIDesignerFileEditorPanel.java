@@ -152,34 +152,40 @@ public class GUIDesignerFileEditorPanel extends JPanel {
       try {
         final Transferable transfer = event.getTransferable();
         final String content = transfer.getTransferData(DataFlavor.stringFlavor).toString();
-        //final String htmlString;
         final Document document = FileDocumentManager.getInstance().getDocument(myVirtualFile);
 
         Platform.runLater(new Runnable() {
           @Override
           public void run() {
+            String getXPathCode = String.format("(function () {\n" +
+                                                    "var element = document.elementFromPoint(%f, %f);\n" +
+                                                    "var paths = [];\n" +
+                                                    "for ( ; element && element.nodeType == Node.ELEMENT_NODE; element = element.parentNode )  {\n" +
+                                                      "var index = 0;\n" +
+                                                      "for ( var sibling = element.previousSibling; sibling; sibling = sibling.previousSibling ) {\n" +
+                                                        "if ( sibling.nodeType == Node.DOCUMENT_TYPE_NODE ) {\n" +
+                                                          "continue;\n" +
+                                                        "}\n" +
+                                                        "if ( sibling.nodeName == element.nodeName ) {\n" +
+                                                          "++index;\n" +
+                                                        "}\n" +
+                                                      "}\n" +
+                                                      "var tagName = element.nodeName.toLowerCase();\n" +
+                                                      "var pathIndex = \"[\" + (index+1) + \"]\";\n" +
+                                                      "paths.unshift( tagName + pathIndex );\n" +
+                                                    "}\n" +
+                                                    "return paths.length ? \"/\" + paths.join( \"/\") : null;\n" +
+                                                "})();", point.getX(), point.getY());
+            String result = (String)webView.getEngine().executeScript(getXPathCode);
+            System.out.println(result);
+            /*
             String insert = String.format("var temp = window.document.createElement('div');" +
                                           "temp.innerHTML='%s';" +
                                           "window.document.elementFromPoint(%f,%f).appendChild(temp);",
                                               content, point.getX(), point.getY());
             webView.getEngine().executeScript(insert);
-
             String getHtml = String.format("new XMLSerializer().serializeToString(window.document.documentElement);");
             htmlString = (String)webView.getEngine().executeScript(getHtml);
-
-            /*
-            function getXPath( element )
-            {
-              var xpath = '';
-              for ( ; element && element.nodeType == 1; element = element.parentNode )
-              {
-                var id = $(element.parentNode).children(element.tagName).index(element) + 1;
-                id > 1 ? (id = '[' + id + ']') : (id = '');
-                xpath = '/' + element.tagName.toLowerCase() + id + xpath;
-              }
-              return xpath;
-             }
-             */
             String getXPath = String.format("(function() {" +
                                             "var element = window.document.elementFromPoint(%f,%f);\n" +
                                             "var xpath = '';\n" +
@@ -193,6 +199,7 @@ public class GUIDesignerFileEditorPanel extends JPanel {
                                             "});", point.getX(), point.getY());
             String result = (String)webView.getEngine().executeScript(getXPath);
             System.out.println(result);
+            */
           }
         });
 
